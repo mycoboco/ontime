@@ -30,10 +30,10 @@ It supports:
 
 but does not yet support:
 
-- a lunar calendar,
+- a [lunar calendar](http://en.wikipedia.org/wiki/Lunar_calendar),
 - [DST(Daylight Saving Time) or Summer Time](http://en.wikipedia.org/wiki/Daylight_saving_time)
   and
-- leap seconds.
+- [leap seconds](http://en.wikipedia.org/wiki/Leap_second).
 
 
 ### Options
