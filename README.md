@@ -32,7 +32,7 @@ but does not yet support:
 
 - a [lunar calendar](http://en.wikipedia.org/wiki/Lunar_calendar),
 - [DST(Daylight Saving Time) or Summer Time](http://en.wikipedia.org/wiki/Daylight_saving_time)
-  and
+  (UTC provides a work-around for DST) and
 - [leap seconds](http://en.wikipedia.org/wiki/Leap_second).
 
 
@@ -81,7 +81,7 @@ The year part(`YYYY-`) should be omitted to specify yearly jobs.
         return
     })
 
-This prints on February 9 every year.
+This code prints on February 9 every year.
 
 Note how the last day of February is handled on a leap year. If you set the
 time expression to February 29 as in `'2-29T00:00:00'`, the job will be
@@ -101,18 +101,18 @@ The year and month parts(`YYYY-MM-`) should be omitted for monthly jobs.
         return
     })
 
-This prints on the 1th and 15th days of each month.
+This code prints on the 1th and 15th days of each month.
 
 Note how the last day of a month is handled. If you set the time expression to
 the 31th day as in `31 23:59:59`, the job will run only on January, March, May,
-July, August, October and December since others have no 31th day. See the
+July, August, October and December since others have no 31th day. Use the
 `keepLast` option to change this behavior.
 
 
 ##### Daily jobs
 
 The whole date part(`YYYY-MM-DDT`) should be omitted for daily jobs; note that
-the separator `T` is also dropped.
+the separator `T` should be also dropped.
 
     ontime({
         cycle: '12:00:00'
@@ -122,7 +122,7 @@ the separator `T` is also dropped.
         return
     })
 
-This prints on noon every day.
+This code prints on noon every day.
 
 
 ##### Weekly jobs
@@ -137,7 +137,7 @@ Weekly jobs have a different format to specify a day of a week.
         return
     })
 
-This prints on Saturday and Sunday every week.
+This code prints on Saturday and Sunday every week.
 
 
 ##### Hourly jobs
@@ -147,12 +147,12 @@ The date and hour parts(`YYYY-MM-DDThh:`) should be omitted for hourly jobs.
     ontime({
         cycle: [ '00:00', '30:00' ]
     }, function (ot) {
-        console.log('')
+        console.log('30 mins to next run')
         ot.done()
         return
     })
 
-This code prints every 30 minutes.
+This code prints every 30 minutes (twice an hour).
 
 
 ##### Jobs on every minute
@@ -162,10 +162,10 @@ By omitting all units except for seconds, a job can be invoked every minute.
     ontime({
         cycle: [ '10', '30', '50' ]
     }, function (ot) {
-        console.log('30 secs left to ')
+        console.log('20 secs to next run')
     })
 
-This prints on the 10th, 30th and 50th seconds of every minute.
+This code prints on the 10th, 30th and 50th seconds of every minute.
 
 
 ##### Jobs on every second
@@ -239,7 +239,7 @@ launching the job eveny _n_ cycles.
 
 This prints on the last day of a month every three months.
 
-See below how this option interacts with the `single` option.
+Note how this option interacts with the `single` option.
 
 
 #### A local time vs. UTC (`utc: false`)
@@ -261,12 +261,12 @@ time interval of the cycle, more than one instance of the job may run at the
 same time. The `single` option keeps another instance of a job from starting if
 there is already a running one.
 
-To be precise, with `single` set to `true`, `ontime` schedules the next run at
-the start of the current run. Changing that to `false` has the next run
+To be precise, with `single` set to `false`, `ontime` schedules the next run at
+the start of the current run. Changing that to `true` has the next run
 scheduled when the `ot.done()` method is invoked by a user.
 
 The following two diagrams show the difference, where labelled `|` and `+`
-denote time spots to start a new instance, and `*` indicates its execution.
+denote time spots to start new instances, and `*` indicates their execution.
 
     ontime({
         cycle:  [ A, B ],
@@ -307,7 +307,8 @@ other.
 It is sometimes necessary to run a job on the last day of each month, which
 have been replaced with doing it on the first day of each month instead. By
 setting the `keepLast` option to `true`, `ontime` automatically adjusts the
-date part(`DD`) to the last day according to the value of the month part(`MM`).
+date part(`DD`) to the last day according to the value of the month part(`MM`)
+if necessary.
 
     ontime({
         cycle:    '31T10:00:00',
@@ -318,9 +319,9 @@ date part(`DD`) to the last day according to the value of the month part(`MM`).
         return
     })
 
-This prints on the 31th day of a month when the month has the 31th day, on the
-28th or 29th when February, or on the 30th day otherwise. Another example goes
-for yearly jobs:
+This code prints on the 31th day of a month when the month has the 31th day, on
+the 28th or 29th when February, or on the 30th day otherwise. Another example
+goes for yearly jobs:
 
     ontime({
         cycle:    '2-29T10:00:00',
@@ -331,7 +332,7 @@ for yearly jobs:
         return
     })
 
-This prints on 29 February on a leap year and on 28 February otherwise.
+This code prints on 29 February on a leap year and on 28 February otherwise.
 
 
 #### Logging messages (`log: false`)
@@ -344,7 +345,7 @@ option to `true`.
 ### Methods
 
 A job function should be defined as to accept at least one argument that is
-named `ot` in this document. The argument contains the following methods:
+referred to as `ot` in this document. The argument contains these methods:
 
 - `ot.done()`: should be called after the job has been finished. This is
   important especially when `single` is set to `true` because scheduling the
