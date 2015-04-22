@@ -205,7 +205,7 @@ module.exports = function (sched, job) {
                     if (then.valueOf() > now.valueOf()) thens.push(then)
                 }
                 thens.sort(function (a, b) {
-                    return a.valueOf() < b.valueOf()
+                    return b.valueOf() - a.valueOf()
                 })
 
                 return thens.length
