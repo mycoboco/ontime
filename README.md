@@ -17,8 +17,8 @@ given function on 4:30AM and 9AM every day (i.e., twice a day).
 
 It supports:
 
-- to describe jobs that should get done yearly, monthly, weekly, daily, weekly,
-  every minute, every second or on specified times;
+- to describe jobs that should get done yearly, monthly, weekly, daily, every
+  minute, every second or on specified times;
 - to skip running a job based on a specified step; e.g., to run it every 2
   weeks;
 - to use a local time or
