@@ -2,8 +2,10 @@ ontime: a human-readable cron
 =============================
 
 `ontime` is a [`cron`](http://en.wikipedia.org/wiki/Cron)-like job scheduler
-with readable time expressions. For example, the following code invokes the
-given function on 4:30AM and 9AM every day (i.e., twice a day).
+with readable time expressions.
+
+For example, the following code invokes the given function on 4:30AM and 9AM
+every day (i.e., twice a day).
 
     var ontime = require('ontime')
 
@@ -354,7 +356,6 @@ referred to as `ot` in this document. The argument contains these methods:
   knows. This does not terminate the current execution of a job; you still need
   to call `ot.done()` for that purpose.
 
--------------------------------------------------------------------------------
 
 `INSTALL.md` explains how to build and install the library. For the copyright
 issues, see the accompanying `LICENSE.md` file.
