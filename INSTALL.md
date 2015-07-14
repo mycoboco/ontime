@@ -2,7 +2,7 @@ How to build and install ontime
 ===============================
 
 This package does not provide an automated way to build or install the library
-except using [`npm`](http://npmjs.org/package/ontime.js) because `ontime` is
+except using [`npm`](http://npmjs.org/package/ontime) because `ontime` is
 intended to runs on top of [`node.js`](http://nodejs.org). If you have
 `node.js` in your system,
 
