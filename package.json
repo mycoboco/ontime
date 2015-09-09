@@ -20,7 +20,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "tape": "^3.0.1"
+    "tape": "^4.2.0"
   },
   "engines": { "node": ">=0.8.0" },
   "licenses": "MIT",
