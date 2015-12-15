@@ -24,7 +24,6 @@
     "tape": "^4.2.0"
   },
   "engines": { "node": ">=0.8.0" },
-  "licenses": "MIT",
   "keywords": [
     "cron", "crontab", "cronjob",
     "schedule", "scheduler", "job scheduler", "task scheduler",
