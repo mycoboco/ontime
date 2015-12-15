@@ -17,6 +17,7 @@
     "url": "https://github.com/mycoboco/ontime/issues",
     "email": "woong.jun@gmail.com"
   },
+  "license": "MIT",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
