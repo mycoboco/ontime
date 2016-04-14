@@ -19,20 +19,17 @@
   },
   "license": "MIT",
   "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
   "dependencies": {},
   "devDependencies": {
     "tape": "^4.2.0"
   },
-  "engines": { "node": ">=0.8.0" },
+  "engines": { "node": ">=0.12.6" },
   "keywords": [
     "cron", "crontab", "cronjob",
     "schedule", "scheduler", "job scheduler", "task scheduler",
     "timer", "interval"
-  ],
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "tape test/*.js"
-  }
+  ]
 }
