@@ -202,7 +202,7 @@ module.exports = function (sched, job) {
 
                 for (var i = 0; i < sched.cycle.length; i++) {
                     then = nextime(cycle, sched.cycle[i], now, sched.utc, sched.keepLast)
-                    if (then.valueOf() > now.valueOf()) thens.push(then)
+                    ;(then.valueOf() > now.valueOf()) && thens.push(then)
                 }
                 thens.sort(function (a, b) {
                     return b.valueOf() - a.valueOf()
