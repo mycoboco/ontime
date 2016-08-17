@@ -7,11 +7,7 @@
 var nextime = require('./lib/nextime')
 
 
-var fmt = {
-    norm: /^(?:(?:(?:(?:(?:(\d{4})-)?(\d{1,2})-)?(\d{1,2})\D)?(\d{1,2}):)?(\d{1,2}):)?(\d{1,2})$/,
-    week: /^[a-z]+\s(\d{1,2}:\d{1,2}:\d{1,2})$/i
-}
-
+var fmt = require('./lib/fmt')
 var idcnt = 0
 
 
