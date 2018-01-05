@@ -250,13 +250,12 @@ module.exports = function (sched, job) {
                         diff = thens[i].then.valueOf()-now.valueOf()
                         if (diff > 0) {
                             thens[i].timer = exTimeout(next, diff)
-                            thens[i].count = (thens[i].count+1) % sched.step
                             info('check for run scheduled after '+info.timeString(diff)+' on '+
                                  thens[i].then)
-                            if (thens[i].count === 0) job(ot)
-                            else info('will wait for '+(sched.step-thens[i].count)+
-                                      ' step(s) to run')
                         }
+                        thens[i].count = (thens[i].count+1) % sched.step
+                        if (thens[i].count === 0) job(ot)
+                        else info('will wait for '+(sched.step-thens[i].count)+' step(s) to run')
                     }
 
                     thens[i] = {
