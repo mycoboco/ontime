@@ -71,8 +71,8 @@ function exTimeout(job, time) {
 }
 
 
-function convWeekly(days, now, utc) {
-    var day, time
+function convWeekly(days, base, utc) {
+    var day, time, now
 
     var dayNumber = function (s) {
         switch(s.toLowerCase().substring(0, 2)) {
@@ -97,10 +97,11 @@ function convWeekly(days, now, utc) {
 
     days = days || []
     if (typeof days === 'string') days = [ days ]
-    now = now || new Date()
+    base = base || new Date()
     utc = (utc)? 'UTC': ''
 
     for (var i = 0; i < days.length; i++) {
+        now = new Date(base)
         day = dayNumber(days[i])
         time = /[a-z\s]+(\d{1,2}:\d{1,2}:\d{1,2})$/.exec(days[i])
         time = (time)? time[1]: '00:00:00'
