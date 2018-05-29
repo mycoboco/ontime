@@ -49,7 +49,7 @@ function log(id, enabled) {
         if (ms / (60*60*24) >= 1)     return Math.floor(ms/(60*60*24))     + ' day(s)'
         if (ms / (60*60) >= 1)        return Math.floor(ms/(60*60))        + ' hour(s)'
         if (ms / 60 >= 1)             return Math.floor(ms/60)             + ' min(s)'
-        return ms + ' sec(s)'
+        return Math.floor(ms) + ' sec(s)'
     }
 
     return r
