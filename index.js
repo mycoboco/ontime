@@ -71,7 +71,7 @@ function exTimeout(job, time) {
 }
 
 
-function convWeekly(days, base, utc) {
+function convWeekly(days) {
     var day, time, now
 
     var dayNumber = function (s) {
