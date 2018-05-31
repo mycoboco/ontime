@@ -72,7 +72,7 @@ function exTimeout(job, time) {
 
 
 function convWeekly(days) {
-    var day, time, now
+    var day, time, base, now
 
     var dayNumber = function (s) {
         switch(s.toLowerCase().substring(0, 2)) {
@@ -97,18 +97,15 @@ function convWeekly(days) {
 
     days = days || []
     if (typeof days === 'string') days = [ days ]
-    base = base || new Date()
-    utc = (utc)? 'UTC': ''
+    base = new Date()
 
     for (var i = 0; i < days.length; i++) {
         now = new Date(base)
         day = dayNumber(days[i])
         time = /[a-z\s]+(\d{1,2}:\d{1,2}:\d{1,2})$/.exec(days[i])
         time = (time)? time[1]: '00:00:00'
-        now['set'+utc+'Date'](+(now['get'+utc+'Date']()) + ((day-now['get'+utc+'Day']()+7)%7))
-        days[i] = now['get'+utc+'FullYear']()+'-'+
-                  (+now['get'+utc+'Month']()+1)+'-'+
-                  now['get'+utc+'Date']()+'T'+time
+        now.setDate(+now.getDate() + ((day-now.getDay()+7)%7))
+        days[i] = now.getFullYear()+'-'+(+now.getMonth()+1)+'-'+now.getDate()+'T'+time
     }
 
     return days
