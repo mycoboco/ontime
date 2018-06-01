@@ -141,6 +141,19 @@ Weekly jobs have a different format to specify a day of a week.
 
 This code prints on Saturday and Sunday every week.
 
+For convenience, `weekday` and `weekend` are supported as shorthands for `Mon`
+to `Fri` and `Sat` to `Sun`, respectively.
+
+    ontime({
+        cycle: 'Weekend 12:00:00'
+    }, function (ot) {
+        console.log('weekend!')
+        ot.done()
+        return
+    })
+
+is equivalent to the example above.
+
 
 ##### Hourly jobs
 
