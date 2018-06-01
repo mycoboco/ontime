@@ -74,22 +74,39 @@ function exTimeout(job, time) {
 function convWeekly(days) {
     var day, time, base, now
 
-    var dayNumber = function (s) {
-        switch(s.toLowerCase().substring(0, 2)) {
-            case 'su':
+    var dayNumber = function (days, i, time) {
+        switch(days[i].toLowerCase().substring(0, 3)) {
+            case 'sun':
                 return 0
-            case 'mo':
+            case 'mon':
                 return 1
-            case 'tu':
+            case 'tue':
                 return 2
-            case 'we':
+            case 'wed':
                 return 3
-            case 'th':
+            case 'thu':
                 return 4
-            case 'fr':
+            case 'fri':
                 return 5
-            case 'sa':
+            case 'sat':
                 return 6
+            case 'wee':
+                if (days[i][4] === 'd') {    // weekday
+                    days.splice.apply(
+                        days,
+                        [ i, 1 ].concat([ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri' ].map(function (d) {
+                            return d+' '+time
+                        }))
+                    )
+                    return 1
+                } else {    // weekend
+                    days.splice.apply(
+                        days, [ i, 1 ].concat([ 'Sat', 'Sun' ].map(function (d) {
+                            return d+' '+time
+                        }))
+                    )
+                    return 6
+                }
         }
 
         return 0
@@ -101,9 +118,9 @@ function convWeekly(days) {
 
     for (var i = 0; i < days.length; i++) {
         now = new Date(base)
-        day = dayNumber(days[i])
         time = /[a-z\s]+(\d{1,2}:\d{1,2}:\d{1,2})$/.exec(days[i])
         time = (time)? time[1]: '00:00:00'
+        day = dayNumber(days, i, time)
         now.setDate(+now.getDate() + ((day-now.getDay()+7)%7))
         days[i] = now.getFullYear()+'-'+(+now.getMonth()+1)+'-'+now.getDate()+'T'+time
     }
