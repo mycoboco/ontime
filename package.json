@@ -1,6 +1,6 @@
 {
   "name": "ontime",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "a human-readable cron",
   "author": {
     "name": "Woong Jun",
