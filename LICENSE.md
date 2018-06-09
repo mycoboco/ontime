@@ -1,7 +1,7 @@
 ontime: a human-readable cron
 =============================
 
-Copyright (C) 2014 by Jun Woong.
+Copyright (C) 2014 by Woong Jun.
 
 This package is a [`cron`](http://en.wikipedia.org/wiki/Cron)-like job
 scheduler.
