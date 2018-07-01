@@ -26,10 +26,18 @@
   "devDependencies": {
     "tape": "^4.2.0"
   },
-  "engines": { "node": ">=0.12.6" },
+  "engines": {
+    "node": ">=4.9.1"
+  },
   "keywords": [
-    "cron", "crontab", "cronjob",
-    "schedule", "scheduler", "job scheduler", "task scheduler",
-    "timer", "interval"
+    "cron",
+    "crontab",
+    "cronjob",
+    "schedule",
+    "scheduler",
+    "job scheduler",
+    "task scheduler",
+    "timer",
+    "interval"
   ]
 }
