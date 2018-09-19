@@ -204,7 +204,7 @@ module.exports = function (sched, job) {
                     }
                 },
                 cancel: function () {
-                    cancelTimeout(then.timer)
+                    clearTimeout(then.timer)
                 }
             }
 
