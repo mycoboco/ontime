@@ -30,8 +30,14 @@
     "node": ">=4.9.1"
   },
   "keywords": [
-    "cron", "crontab", "cronjob",
-    "schedule", "scheduler", "job scheduler", "task scheduler",
-    "timer", "interval"
+    "cron",
+    "crontab",
+    "cronjob",
+    "schedule",
+    "scheduler",
+    "job scheduler",
+    "task scheduler",
+    "timer",
+    "interval"
   ]
 }
