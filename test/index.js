@@ -76,10 +76,10 @@ test('specific/local', function (t) {
 })
 
 test('specific/UTC', function (t) {
-    t.strictEqual(nextime('', '2014-11-01T01:00:00', new Date('2014-11-01T00:00:00'), true)+'',
-                  new Date('2014-11-01T01:00:00')+'')
-    t.strictEqual(nextime('', '2014-11-01T10:00:00', new Date('2014-11-01T10:00:00'), true)+'',
-                  new Date('2014-11-01T10:00:00')+'')
+    t.strictEqual(nextime('', '2014-11-01T01:00:00', new Date('2014-11-01T00:00:00Z'), true)+'',
+                  new Date('2014-11-01T01:00:00Z')+'')
+    t.strictEqual(nextime('', '2014-11-01T10:00:00', new Date('2014-11-01T10:00:00Z'), true)+'',
+                  new Date('2014-11-01T10:00:00Z')+'')
     t.end()
 })
 
@@ -94,12 +94,12 @@ test('yearly/local', function (t) {
 })
 
 test('yearly/UTC', function (t) {
-    t.strictEqual(nextime('Y', '12-31T23:00:00', new Date('2014-12-31T22:00:00'), true)+'',
-                  new Date('2014-12-31T23:00:00')+'')
-    t.strictEqual(nextime('Y', '12-31T23:00:00', new Date('2014-12-31T23:00:00'), true)+'',
-                  new Date('2015-12-31T23:00:00')+'')
-    t.strictEqual(nextime('Y', '02-29T23:00:00', new Date('2014-02-28T23:00:00'), true)+'',
-                  new Date('2016-02-29T23:00:00')+'')
+    t.strictEqual(nextime('Y', '12-31T23:00:00', new Date('2014-12-31T22:00:00Z'), true)+'',
+                  new Date('2014-12-31T23:00:00Z')+'')
+    t.strictEqual(nextime('Y', '12-31T23:00:00', new Date('2014-12-31T23:00:00Z'), true)+'',
+                  new Date('2015-12-31T23:00:00Z')+'')
+    t.strictEqual(nextime('Y', '02-29T23:00:00', new Date('2014-02-28T23:00:00Z'), true)+'',
+                  new Date('2016-02-29T23:00:00Z')+'')
     t.end()
 })
 
@@ -120,16 +120,16 @@ test('monthly/local', function (t) {
 })
 
 test('monthly/UTC', function (t) {
-    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-12-31T22:00:00'), true)+'',
-                  new Date('2014-12-31T23:00:00')+'')
-    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-12-31T23:00:00'), true)+'',
-                  new Date('2015-01-31T23:00:00')+'')
-    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-10-31T22:00:00'), true)+'',
-                  new Date('2014-10-31T23:00:00')+'')
-    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-10-31T23:00:00'), true)+'',
-                  new Date('2014-12-31T23:00:00')+'')
-    t.strictEqual(nextime('M', '29T23:00:00', new Date('2014-02-28T22:00:00'), true)+'',
-                  new Date('2014-03-29T23:00:00')+'')
+    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-12-31T22:00:00Z'), true)+'',
+                  new Date('2014-12-31T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-12-31T23:00:00Z'), true)+'',
+                  new Date('2015-01-31T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-10-31T22:00:00Z'), true)+'',
+                  new Date('2014-10-31T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-10-31T23:00:00Z'), true)+'',
+                  new Date('2014-12-31T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '29T23:00:00', new Date('2014-02-28T22:00:00Z'), true)+'',
+                  new Date('2014-03-29T23:00:00Z')+'')
     t.end()
 })
 
@@ -144,10 +144,10 @@ test('daily/local', function (t) {
 })
 
 test('daily/UTC', function (t) {
-    t.strictEqual(nextime('D', '23:00:00', new Date('2014-12-31T22:00:00'), true)+'',
-                  new Date('2014-12-31T23:00:00')+'')
-    t.strictEqual(nextime('D', '23:00:00', new Date('2014-12-31T23:00:00'), true)+'',
-                  new Date('2015-01-01T23:00:00')+'')
+    t.strictEqual(nextime('D', '23:00:00', new Date('2014-12-31T22:00:00Z'), true)+'',
+                  new Date('2014-12-31T23:00:00Z')+'')
+    t.strictEqual(nextime('D', '23:00:00', new Date('2014-12-31T23:00:00Z'), true)+'',
+                  new Date('2015-01-01T23:00:00Z')+'')
     t.end()
 })
 
@@ -162,12 +162,12 @@ test('hourly/local', function (t) {
 })
 
 test('hourly/UTC', function (t) {
-    t.strictEqual(nextime('h', '59:00', new Date('2014-11-01T23:58:00'), true)+'',
-                  new Date('2014-11-01T23:59:00')+'')
-    t.strictEqual(nextime('h', '59:00', new Date('2014-11-01T23:59:00'), true)+'',
-                  new Date('2014-11-02T00:59:00')+'')
-    t.strictEqual(nextime('h', '59:00', new Date('2014-12-31T23:59:00'), true)+'',
-                  new Date('2015-01-01T00:59:00')+'')
+    t.strictEqual(nextime('h', '59:00', new Date('2014-11-01T23:58:00Z'), true)+'',
+                  new Date('2014-11-01T23:59:00Z')+'')
+    t.strictEqual(nextime('h', '59:00', new Date('2014-11-01T23:59:00Z'), true)+'',
+                  new Date('2014-11-02T00:59:00Z')+'')
+    t.strictEqual(nextime('h', '59:00', new Date('2014-12-31T23:59:00Z'), true)+'',
+                  new Date('2015-01-01T00:59:00Z')+'')
     t.end()
 })
 
@@ -182,12 +182,12 @@ test('ever minute/local', function (t) {
 })
 
 test('ever minute/UTC', function (t) {
-    t.strictEqual(nextime('m', '9', new Date('2014-11-01T23:59:08'), true)+'',
-                  new Date('2014-11-01T23:59:09')+'')
-    t.strictEqual(nextime('m', '59', new Date('2014-11-01T23:59:59'), true)+'',
-                  new Date('2014-11-02T00:00:59')+'')
-    t.strictEqual(nextime('m', '59', new Date('2014-12-31T23:59:59'), true)+'',
-                  new Date('2015-01-01T00:00:59')+'')
+    t.strictEqual(nextime('m', '9', new Date('2014-11-01T23:59:08Z'), true)+'',
+                  new Date('2014-11-01T23:59:09Z')+'')
+    t.strictEqual(nextime('m', '59', new Date('2014-11-01T23:59:59Z'), true)+'',
+                  new Date('2014-11-02T00:00:59Z')+'')
+    t.strictEqual(nextime('m', '59', new Date('2014-12-31T23:59:59Z'), true)+'',
+                  new Date('2015-01-01T00:00:59Z')+'')
     t.end()
 })
 
@@ -200,10 +200,10 @@ test('ever second/local', function (t) {
 })
 
 test('ever second/UTC', function (t) {
-    t.strictEqual(nextime('s', '', new Date('2014-11-01T23:59:59'), true)+'',
-                  new Date('2014-11-02T00:00:00')+'')
-    t.strictEqual(nextime('s', '', new Date('2014-12-31T23:59:59'), true)+'',
-                  new Date('2015-01-01T00:00:00')+'')
+    t.strictEqual(nextime('s', '', new Date('2014-11-01T23:59:59Z'), true)+'',
+                  new Date('2014-11-02T00:00:00Z')+'')
+    t.strictEqual(nextime('s', '', new Date('2014-12-31T23:59:59Z'), true)+'',
+                  new Date('2015-01-01T00:00:00Z')+'')
     t.end()
 })
 
@@ -213,10 +213,10 @@ test('keeps last day/yearly', function (t) {
     t.strictEqual(nextime('Y', '2-29T23:00:00', new Date(2014,2-1,28,22,0,0,0), false, true)+'',
                   new Date(2014,2-1,28,23,0,0,0)+'')
 
-    t.strictEqual(nextime('Y', '2-29T23:00:00', new Date('2016-02-28T22:00:00'), true, true)+'',
-                  new Date('2016-02-29T23:00:00')+'')
-    t.strictEqual(nextime('Y', '2-29T23:00:00', new Date('2014-02-28T22:00:00'), true, true)+'',
-                  new Date('2014-02-28T23:00:00')+'')
+    t.strictEqual(nextime('Y', '2-29T23:00:00', new Date('2016-02-28T22:00:00Z'), true, true)+'',
+                  new Date('2016-02-29T23:00:00Z')+'')
+    t.strictEqual(nextime('Y', '2-29T23:00:00', new Date('2014-02-28T22:00:00Z'), true, true)+'',
+                  new Date('2014-02-28T23:00:00Z')+'')
     t.end()
 })
 
@@ -238,22 +238,22 @@ test('keeps last day/monthly', function (t) {
     t.strictEqual(nextime('M', '31T23:00:00', new Date(2014,9-1,30,23,0,0,0), false, true)+'',
                   new Date(2014,10-1,31,23,0,0,0)+'')
 
-    t.strictEqual(nextime('M', '29T23:00:00', new Date('2016-02-28T22:00:00'), true, true)+'',
-                  new Date('2016-02-29T23:00:00')+'')
-    t.strictEqual(nextime('M', '29T23:00:00', new Date('2014-03-28T22:00:00'), true, true)+'',
-                  new Date('2014-03-29T23:00:00')+'')
-    t.strictEqual(nextime('M', '29T23:00:00', new Date('2014-03-29T23:00:00'), true, true)+'',
-                  new Date('2014-04-29T23:00:00')+'')
-    t.strictEqual(nextime('M', '29T23:00:00', new Date('2014-02-28T22:00:00'), true, true)+'',
-                  new Date('2014-02-28T23:00:00')+'')
-    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-02-28T22:00:00'), true, true)+'',
-                  new Date('2014-02-28T23:00:00')+'')
-    t.strictEqual(nextime('M', '31T23:00:00', new Date('2016-02-28T22:00:00'), true, true)+'',
-                  new Date('2016-02-29T23:00:00')+'')
-    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-09-29T22:00:00'), true, true)+'',
-                  new Date('2014-09-30T23:00:00')+'')
-    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-09-31T23:00:00'), true, true)+'',
-                  new Date('2014-10-31T23:00:00')+'')
+    t.strictEqual(nextime('M', '29T23:00:00', new Date('2016-02-28T22:00:00Z'), true, true)+'',
+                  new Date('2016-02-29T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '29T23:00:00', new Date('2014-03-28T22:00:00Z'), true, true)+'',
+                  new Date('2014-03-29T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '29T23:00:00', new Date('2014-03-29T23:00:00Z'), true, true)+'',
+                  new Date('2014-04-29T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '29T23:00:00', new Date('2014-02-28T22:00:00Z'), true, true)+'',
+                  new Date('2014-02-28T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-02-28T22:00:00Z'), true, true)+'',
+                  new Date('2014-02-28T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '31T23:00:00', new Date('2016-02-28T22:00:00Z'), true, true)+'',
+                  new Date('2016-02-29T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-09-29T22:00:00Z'), true, true)+'',
+                  new Date('2014-09-30T23:00:00Z')+'')
+    t.strictEqual(nextime('M', '31T23:00:00', new Date('2014-09-31T23:00:00Z'), true, true)+'',
+                  new Date('2014-10-31T23:00:00Z')+'')
     t.end()
 })
 
