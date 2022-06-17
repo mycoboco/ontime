@@ -188,7 +188,7 @@ module.exports = function (sched, job) {
             var then, thens = []
             var ot = {
                 done: function () {
-                    var now = new Date(), then
+                    var now = new Date()
 
                     do {
                         if (thens.length === 0 && ready(now) === 0) break
