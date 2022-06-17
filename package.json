@@ -24,10 +24,12 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-google": "^0.14.0",
     "tape": "^4.2.0"
   },
   "engines": {
-    "node": ">=4.9.1"
+    "node": ">=14.0.0"
   },
   "keywords": [
     "cron",
