@@ -181,13 +181,14 @@ module.exports = (sched, job) => {
       return {
         done: () => {
           const now = new Date();
+          let t;
 
           do {
             if (thens.length === 0 && ready(now) === 0) break;
-            then = thens.pop();
-          } while (then.valueOf() <= now.valueOf());
-          if (then) {
-            const diff = then.valueOf() - now.valueOf();
+            t = thens.pop();
+          } while (t.valueOf() <= now.valueOf());
+          if (t) {
+            const diff = t.valueOf() - now.valueOf();
             if (diff > 0) {
               info(
                 `check for run scheduled after ${info.timeString(diff)} ` +
