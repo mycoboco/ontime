@@ -1,6 +1,11 @@
 What's new in ontime?
 =====================
 
+2022-08-20  0.1.1 released with a bug fix
+2022-06-18  0.1.0 released to support node.js 14
+2022-06-17  0.0.9 released as last version for old node.js versions
+2021-09-06  0.0.8 released to avoid security vulnerabilities
+2021-05-05  0.0.7 released to avoid security vulnerabilities
 2018-09-19  0.0.6 released with min. node version changed
 2018-06-04  0.0.5 released with weekday/end support and a bug fix
 2018-01-05  0.0.4 released with a bug fix
