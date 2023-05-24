@@ -37,7 +37,10 @@
     "space-infix-ops": [
       "error",
       {"int32Hint": false}
-    ]
+    ],
+    "object-shorthand": "error",
+    "no-await-in-loop": "warn",
+    "prefer-destructuring": "error"
   },
   "env": {
     "node": true,
