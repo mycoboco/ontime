@@ -2,8 +2,8 @@
  *  test cases for next
  */
 
-const nextime = require('../lib/nextime');
-const test = require('tape');
+import nextime from '../lib/nextime.js';
+import {default as test} from 'tape';
 
 
 test('invalid dates throws exceptions', (t) => {

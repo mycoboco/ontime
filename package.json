@@ -1,6 +1,6 @@
 {
   "name": "ontime",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "a human-readable cron",
   "author": {
     "name": "Woong Jun",
@@ -18,18 +18,18 @@
     "email": "woong.jun@gmail.com"
   },
   "license": "MIT",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js"
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^8.41.0",
-    "eslint-config-google": "^0.14.0",
-    "tape": "^4.2.0"
+    "eslint": "^8.57.0",
+    "tape": "^5.9.0"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=20.0.0"
   },
   "keywords": [
     "cron",

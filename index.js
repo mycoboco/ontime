@@ -2,8 +2,8 @@
  *  ontime: a human-readable cron
  */
 
-const nextime = require('./lib/nextime');
-const fmt = require('./lib/fmt');
+import nextime from './lib/nextime.js';
+import fmt from './lib/fmt.js';
 
 let idcnt = 0;
 
@@ -139,7 +139,7 @@ function getCycle(cycles) {
 //   ?log: false || true
 // }
 // job = (ot) => {}
-module.exports = (sched, job) => {
+export default function(sched, job) {
   const now = new Date();
 
   const info = log(sched.id || idcnt++, sched.log);
@@ -179,7 +179,7 @@ module.exports = (sched, job) => {
 
     const ot = (() => {
       return {
-        done: () => {
+        done() {
           const now = new Date();
           let t;
 
@@ -198,7 +198,9 @@ module.exports = (sched, job) => {
             }
           }
         },
-        cancel: () => clearTimeout(then.timer),
+        cancel() {
+          clearTimeout(then.timer);
+        },
       };
     })();
 
@@ -219,8 +221,10 @@ module.exports = (sched, job) => {
     const thens = [];
 
     const ot = {
-      done: () => {},
-      cancel: () => thens.forEach((then) => clearTimeout(then.timer)),
+      done() {},
+      cancel() {
+        thens.forEach((then) => clearTimeout(then.timer));
+      },
     };
 
     sched.cycle.forEach((sc, i) => {
@@ -248,6 +252,6 @@ module.exports = (sched, job) => {
       }
     });
   }
-};
+}
 
 // end of index.js
