@@ -17,7 +17,7 @@ every day (i.e., twice a day).
         return;
     });
 
-*Use `v0.1.1` for CommonJS modules.*
+*Use `ontime@0.1.1` for CommonJS modules.*
 
 It supports:
 
