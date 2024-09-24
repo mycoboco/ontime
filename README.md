@@ -7,15 +7,17 @@ with readable time expressions.
 For example, the following code invokes the given function on 4:30AM and 9AM
 every day (i.e., twice a day).
 
-    var ontime = require('ontime')
+    import ontime from 'ontime';
 
     ontime({
         cycle: [ '04:30:00', '9:00:00' ]
-    }, function (ot) {
+    }, (ot) => {
         // do your job here
-        ot.done()
-        return
-    })
+        ot.done();
+        return;
+    });
+
+*Use `v0.1.1` for CommonJS modules.*
 
 It supports:
 
@@ -37,14 +39,12 @@ but does not yet support:
   (UTC provides a work-around for DST) and
 - [leap seconds](http://en.wikipedia.org/wiki/Leap_second).
 
-
 ### Options
 
 Options to `ontime` control the cycle of a job, choose between a local time and
 UTC, enable to keep track of the last day of a month and so on. In explaining
 options, each section header shows the option it explains and its default
 value in parentheses.
-
 
 #### Time expressions (`cycle: ''`)
 
@@ -70,18 +70,17 @@ The time expression is given to `ontime` through the `cycle` option. You can
 give a single expression of the string type like `'01-01T12:00:00'` or multiple
 ones as an array of strings like `[ '01-01T12:00:00', '7-1T0:0:0' ]`.
 
-
 ##### Yearly jobs
 
 The year part(`YYYY-`) should be omitted to specify yearly jobs.
 
     ontime({
         cycle: '2-9T00:00:00'
-    }, function (ot) {
-        console.log('my birthday!')
-        ot.done()
-        return
-    })
+    }, (ot) => {
+        console.log('my birthday!');
+        ot.done();
+        return;
+    });
 
 This code prints on February 9 every year.
 
@@ -90,18 +89,17 @@ time expression to February 29 as in `'2-29T00:00:00'`, the job will be
 triggered only in leap years. See the `keepLast` option to change this
 behavior.
 
-
 ##### Monthly jobs
 
 The year and month parts(`YYYY-MM-`) should be omitted for monthly jobs.
 
     ontime({
         cycle: [ '1T12:00:00', '15T12:00:00' ]
-    }, function (ot) {
-        console.log('review the project')
-        ot.done()
-        return
-    })
+    }, (ot) => {
+        console.log('review the project');
+        ot.done();
+        return;
+    });
 
 This code prints on the 1th and 15th days of each month.
 
@@ -110,7 +108,6 @@ the 31th day as in `31 23:59:59`, the job will run only on January, March, May,
 July, August, October and December since others have no 31th day. Use the
 `keepLast` option to change this behavior.
 
-
 ##### Daily jobs
 
 The whole date part(`YYYY-MM-DDT`) should be omitted for daily jobs; note that
@@ -118,14 +115,13 @@ the separator `T` should be also dropped.
 
     ontime({
         cycle: '12:00:00'
-    }, function (ot) {
-        console.log('lunch time!')
-        ot.done()
-        return
-    })
+    }, (ot) => {
+        console.log('lunch time!');
+        ot.done();
+        return;
+    });
 
 This code prints on noon every day.
-
 
 ##### Weekly jobs
 
@@ -154,7 +150,6 @@ to `Fri` and `Sat` to `Sun`, respectively.
 
 is equivalent to the example above.
 
-
 ##### Hourly jobs
 
 The date and hour parts(`YYYY-MM-DDThh:`) should be omitted for hourly jobs.
@@ -169,7 +164,6 @@ The date and hour parts(`YYYY-MM-DDThh:`) should be omitted for hourly jobs.
 
 This code prints every 30 minutes (twice an hour).
 
-
 ##### Jobs on every minute
 
 By omitting all units except for seconds, a job can be invoked every minute.
@@ -181,7 +175,6 @@ By omitting all units except for seconds, a job can be invoked every minute.
     })
 
 This code prints on the 10th, 30th and 50th seconds of every minute.
-
 
 ##### Jobs on every second
 
@@ -199,7 +192,6 @@ An empty string denotes jobs that get started every second.
 
 This counts up every second.
 
-
 ##### Jobs on specified times
 
 You can trigger your job on explicitly specified times.
@@ -215,7 +207,6 @@ You can trigger your job on explicitly specified times.
 
 This prints on 9AM of 9 January 2100 and the same time of 2200 if you're using
 `node.js` until then.
-
 
 ##### Mixing different cycles
 
@@ -234,7 +225,6 @@ achieved by introducing multiple invocations to `ontime` as in:
     ontime({
         cycle: 'Sat 12:0:0'    // weekly
     }, job)
-
 
 #### Skipping steps (`step: 1`)
 
@@ -256,7 +246,6 @@ This prints on the last day of a month every three months.
 
 Note how this option interacts with the `single` option.
 
-
 #### A local time vs. UTC (`utc: false`)
 
 Setting the `utc` option to `true` changes `ontime` to interpret the time
@@ -267,7 +256,6 @@ This is useful
 - when you cannot be sure of what the time zone on your system is; and
 - when you do not want to miss or run twice your job when the time shifts back
   or forward an hour for DST.
-
 
 #### Preserving a single instance (`single: false`)
 
@@ -316,7 +304,6 @@ Exclusiveness of job execution is guaranteed only within a single invocation to
 `ontime`. Two difference invocations to `ontime` cannot interpose with each
 other.
 
-
 #### Keeping the last day of a month (`keepLast: false`)
 
 It is sometimes necessary to run a job on the last day of each month, which
@@ -349,13 +336,11 @@ goes for yearly jobs:
 
 This code prints on 29 February on a leap year and on 28 February otherwise.
 
-
 #### Logging messages (`log: false`)
 
 `ontime` has a very simple form of logging that is useful when checking if your
 configuration works as intended. It can be turned on by setting the `log`
 option to `true`.
-
 
 ### Methods
 
@@ -374,4 +359,4 @@ referred to as `ot` in this document. The argument contains these methods:
 issues, see the accompanying `LICENSE.md` file.
 
 If you have a question or suggestion, do not hesitate to contact me via email
-(woong.jun at gmail.com) or web (http://code.woong.org/).
+(woong.jun at gmail.com) or [web](http://code.woong.org/).
