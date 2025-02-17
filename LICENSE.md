@@ -3,7 +3,7 @@ ontime: a human-readable cron
 
 Copyright (C) 2014 by Woong Jun.
 
-This package is a [`cron`](http://en.wikipedia.org/wiki/Cron)-like job
+This package is a [`cron`](https://en.wikipedia.org/wiki/Cron)-like job
 scheduler.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

@@ -1,7 +1,7 @@
 ontime: a human-readable cron
 =============================
 
-`ontime` is a [`cron`](http://en.wikipedia.org/wiki/Cron)-like job scheduler
+`ontime` is a [`cron`](https://en.wikipedia.org/wiki/Cron)-like job scheduler
 with readable time expressions.
 
 For example, the following code invokes the given function on 4:30AM and 9AM
@@ -26,7 +26,7 @@ It supports:
 - to skip running a job based on a specified step; e.g., to run it every 2
   weeks;
 - to use a local time or
-  [UTC](http://en.wikipedia.org/wiki/Coordinated_Universal_Time);
+  [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time);
 - to track the last day of a month; possible to run a job on the last day of
   every month; and
 - to wait for the currently running job to get finished, which ensures that at
@@ -34,10 +34,10 @@ It supports:
 
 but does not yet support:
 
-- a [lunar calendar](http://en.wikipedia.org/wiki/Lunar_calendar),
-- [DST(Daylight Saving Time) or Summer Time](http://en.wikipedia.org/wiki/Daylight_saving_time)
+- a [lunar calendar](https://en.wikipedia.org/wiki/Lunar_calendar),
+- [DST(Daylight Saving Time) or Summer Time](https://en.wikipedia.org/wiki/Daylight_saving_time)
   (UTC provides a work-around for DST) and
-- [leap seconds](http://en.wikipedia.org/wiki/Leap_second).
+- [leap seconds](https://en.wikipedia.org/wiki/Leap_second).
 
 ### Options
 
@@ -50,7 +50,7 @@ value in parentheses.
 
 `ontime` determines the cycle of a job based on the format of time expressions.
 The time expression basically has the form of an
-[ISO-8601 Date Format](http://en.wikipedia.org/wiki/ISO_8601),
+[ISO-8601 Date Format](https://en.wikipedia.org/wiki/ISO_8601),
 `YYYY-MM-DDThh:mm:ss` where `YYYY` indicates a year, `MM` a month, `DD` a day
 of the month, `hh` an hour, `mm` a minute and `ss` a second, except that:
 
@@ -359,4 +359,4 @@ referred to as `ot` in this document. The argument contains these methods:
 issues, see the accompanying `LICENSE.md` file.
 
 If you have a question or suggestion, do not hesitate to contact me via email
-(woong.jun at gmail.com) or [web](http://code.woong.org/).
+(woong.jun at gmail.com) or [web](https://code.woong.org/).

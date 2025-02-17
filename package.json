@@ -5,10 +5,10 @@
   "author": {
     "name": "Woong Jun",
     "email": "woong.jun@gmail.com",
-    "url": "http://code.woong.org/"
+    "url": "https://code.woong.org/"
   },
   "contributors": [],
-  "homepage": "http://code.woong.org/ontime",
+  "homepage": "https://code.woong.org/ontime",
   "repository": {
     "type": "git",
     "url": "https://github.com/mycoboco/ontime.git"
